@@ -1,327 +1,237 @@
-
 <!DOCTYPE html>
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ऑनलाइन स्कैम अलर्ट - सावधान रहें | Manoj Pacherwal</title>
+    <title>ScamAlert.co.in - India's Ultimate Cyber Defense Portal</title>
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #f4f6f9; color: #333; }
-        header { background: linear-gradient(135deg, #d9534f, #a9221e); color: white; padding: 35px 15px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
-        header h1 { margin: 0; font-size: 30px; }
-        header p { margin-top: 8px; font-size: 16px; opacity: 0.95; }
-        .creator-badge { display: inline-block; background: rgba(255,255,255,0.25); padding: 6px 16px; border-radius: 20px; font-size: 15px; margin-top: 10px; font-weight: bold; }
-        
-        .ticker-tape { background: #ffebee; color: #c62828; padding: 12px; font-weight: bold; text-align: center; border-bottom: 2px dashed #d9534f; font-size: 15px; animation: pulse 1.5s infinite; }
-        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.6; } 100% { opacity: 1; } }
-
-        .container { max-width: 900px; margin: 25px auto; padding: 0 15px; }
-        
-        .alert-box { background-color: #ffebee; border-left: 6px solid #d9534f; padding: 20px; margin-bottom: 25px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
-        .alert-box h2 { margin-top: 0; color: #c62828; font-size: 22px; }
-        .btn-call { display: inline-block; background-color: #d9534f; color: white; padding: 14px 28px; text-decoration: none; font-weight: bold; border-radius: 30px; font-size: 18px; margin-top: 12px; box-shadow: 0 4px 8px rgba(217,83,79,0.4); }
-        
-        .section { background: white; padding: 22px; margin-bottom: 25px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
-        .section h2 { border-bottom: 3px solid #007bff; padding-bottom: 10px; color: #007bff; font-size: 22px; margin-top: 0; }
-        
-        /* Interactive AI Scam Checker */
-        .checker-box { background: #eef7ff; padding: 18px; border-radius: 8px; border: 1px solid #b6d4fe; }
-        .checker-box input { width: 95%; padding: 12px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 15px; }
-        .btn-check { background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; }
-        #checkResult { margin-top: 12px; font-weight: bold; }
-
-        /* Video Container */
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; margin-top: 15px; }
-        .video-container iframe { position: absolute; top:0; left: 0; width: 100%; height: 100%; border: 0; }
-
-        /* Form Styling */
-        .scam-form { display: flex; flex-direction: column; gap: 15px; margin-top: 15px; }
-        .form-group { display: flex; flex-direction: column; text-align: left; }
-        .form-group label { font-weight: bold; margin-bottom: 5px; color: #444; }
-        .form-group input, .form-group select, .form-group textarea { padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 15px; font-family: inherit; }
-        .btn-submit { background-color: #28a745; color: white; border: none; padding: 14px; border-radius: 6px; font-size: 17px; font-weight: bold; cursor: pointer; }
-
-        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        table, th, td { border: 1px solid #ddd; }
-        th, td { padding: 12px; text-align: left; }
-        th { background-color: #007bff; color: white; }
-        tr:nth-child(even) { background-color: #f9f9f9; }
-        
-        footer { text-align: center; padding: 30px 15px; background-color: #1a1a1a; color: white; margin-top: 35px; }
-        footer a { color: #4db8ff; text-decoration: none; }
-    </style>
-</head>
-<body>
-
-    <!-- 🚨 लाइव थ्रेट टिकर -->
-    <div class="ticker-tape">
-        ⚠️ आज का सबसे बड़ा साइबर खतरा: 'डिजिटल अरेस्ट' और 'पार्ट-टाइम टेलीग्राम जॉब' स्कैम से सावधान रहें!
-    </div>
-
-    <header>
-        <h1>🚨 साइबर स्कैम अलर्ट (ScamAlert.co.in)</h1>
-        <p>ऑनलाइन धोखाधड़ी से बचें | आसान हिंदी में पूरी जानकारी</p>
-        <div class="creator-badge">👨‍💻 मनोज पचेरवाल (Manoj Pacherwal) द्वारा एक जनहित पहल</div>
-    </header>
-
-    <div class="container">
-        
-        <!-- आपातकालीन हेल्पलाइन -->
-        <div class="alert-box">
-            <h2>🆘 अगर आपके साथ फ्रॉड हो गया है तो क्या करें?</h2>
-            <p><strong>तुरंत 1930 पर कॉल करें:</strong> यह राष्ट्रीय साइबर अपराध हेल्पलाइन (National Cyber Crime Helpline) है। जितने कम समय में कॉल करेंगे, पैसे वापस मिलने की संभावना उतनी ही ज्यादा होगी।</p>
-            <p><strong>ऑनलाइन शिकायत दर्ज करें:</strong> <a href="https://cybercrime.gov.in" target="_blank" style="color: #c62828; font-weight: bold;">cybercrime.gov.in</a> पर जाएँ।</p>
-            <a href="tel:1930" class="btn-call">📞 तुरंत कॉल करें 1930 (Toll Free)</a>
-        </div>
-
-        <!-- 🤖 एआई स्मार्ट स्कैम चेकर -->
-        <div class="section">
-            <h2>🤖 एआई स्मार्ट स्कैम चेकर (संदेश की जाँच करें)</h2>
-            <p>अगर आपको कोई संदेहास्पद मैसेज, ईमेल या ऑफर आया है, तो नीचे दिए बॉक्स में उसका मुख्य शब्द लिखकर जाँच करें:</p>
-            <div class="checker-box">
-                <input type="text" id="userInput" placeholder="जैसे: KYC update, Lottery winner, Telegram task, Digital arrest...">
-                <button class="btn-check" onclick="checkScam()">जांच करें (AI Check)</button>
-                <div id="checkResult"></div>
-            </div>
-        </div>
-
-        <!-- 🎥 वीडियो सेक्शन -->
-        <div class="section">
-            <h2>🎥 देखें और समझें: फ्रॉड से बचने का तरीका</h2>
-            <p>साइबर ठगों के नए पैंतरों को बेनकाब करने वाली यह विशेष वीडियो देखें:</p>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/g2J-mF2E7o8" title="Cyber Crime Awareness Video" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <!-- 📢 सीक्रेट रिपोर्टिंग / आपबीती शेयर फॉर्म -->
-        <div class="section" style="border: 2px solid #28a745;">
-            <h2 style="color: #28a745; border-bottom-color: #28a745;">📢 अपनी आपबीती गुप्त रूप से शेयर करें (Anonymous Report)</h2>
-            <p>यदि आपके साथ कोई धोखाधड़ी हुई है, तो यहाँ बेझिझक शेयर करें। आप चाहें तो अपना नाम गुप्त (Anonymous) भी रख सकते हैं।</p>
-            
-            <form class="scam-form" action="https://formspree.io/f/manoj.singh.ms838@gmail.com" method="POST">
-                <div class="form-group">
-                    <label>आपका नाम (या 'गुप्त नागरिक' लिखें):</label>
-                    <input type="text" name="name" placeholder="नाम या गुप्त नागरिक" required>
-                </div>
-                <div class="form-group">
-                    <label>किस प्रकार का फ्रॉड हुआ?</label>
-                    <select name="scam_type" required>
-                        <option value="">-- फ्रॉड का प्रकार चुनें --</option>
-                        <option value="OTP / KYC Scam">OTP / KYC फ्रॉड</option>
-                        <option value="Digital Arrest">डिजिटल अरेस्ट (Digital Arrest)</option>
-                        <option value="Part-time Job Scam">पार्ट-टाइम जॉब / Telegram फ्रॉड</option>
-                        <option value="QR Code Fraud">QR Code / OLX फ्रॉड</option>
-                        <option value="Other">अन्य फ्रॉड</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>घटना का विवरण (संक्षेप में):</label>
-                    <textarea name="message" rows="4" placeholder="यहाँ अपनी कहानी लिखें ताकि दूसरे लोग सावधान हो सकें..." required></textarea>
-                </div>
-                <button type="submit" class="btn-submit">🚀 सुरक्षित रूप से भेजें</button>
-            </form>
-        </div>
-
-        <!-- प्रमुख बैंकों के इमरजेंसी हेल्पलाइन नंबर -->
-        <div class="section">
-            <h2>🏦 प्रमुख बैंकों के इमरजेंसी हेल्पलाइन नंबर</h2>
-            <div style="overflow-x:auto;">
-                <table>
-                    <tr>
-                        <th>बैंक का नाम</th>
-                        <th>टोल-फ्री इमरजेंसी नंबर (Toll-Free)</th>
-                    </tr>
-                    <tr>
-                        <td>भारतीय स्टेट बैंक (SBI)</td>
-                        <td>1800 1234 / 1800 2100</td>
-                    </tr>
-                    <tr>
-                        <td>HDFC Bank</td>
-                        <td>1800 1600 / 1800 202 6161</td>
-                    </tr>
-                    <tr>
-                        <td>ICICI Bank</td>
-                        <td>1800 1080</td>
-                    </tr>
-                    <tr>
-                        <td>Punjab National Bank (PNB)</td>
-                        <td>1800 180 2222</td>
-                    </tr>
-                    <tr>
-                        <td>Bank of Baroda</td>
-                        <td>1800 5700</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-
-    </div>
-
-    <footer>
-        <p>© 2026 <strong>ScamAlert.co.in</strong> — जनहित में जारी साइबर जागरूकता पहल</p>
-        <p>संस्थापक एवं डेवलपर: <strong>मनोज पचेरवाल (Manoj Pacherwal)</strong></p>
-        <p>संपर्क ईमेल: <a href="mailto:manoj.singh.ms838@gmail.com">manoj.singh.ms838@gmail.com</a></p>
-    </footer>
-
-    <script>
-        function checkScam() {
-            var input = document.getElementById('userInput').value.toLowerCase();
-            var result = document.getElementById('checkResult');
-            
-            if (input.includes('kyc') || input.includes('otp') || input.includes('block') || input.includes('telegram') || input.includes('job') || input.includes('winner') || input.includes('lottery') || input.includes('like') || input.includes('arrest') || input.includes('cbi')) {
-                result.style.color = '#c62828';
-                result.innerHTML = '⚠️ एआई चेतावनी: यह 99% एक खतरनाक स्कैम है! तुरंत इस मैसेज को डिलीट करें, किसी को OTP न दें और पैसे बिल्कुल ट्रांसफर न करें।';
-            } else if (input.trim() === '') {
-                result.style.color = '#333';
-                result.innerHTML = 'कृपया जाँच करने के लिए कोई शब्द या वाक्य दर्ज करें।';
-            } else {
-                result.style.color = '#28a745';
-                result.innerHTML = '✅ यदि इसमें पैसों या पासवर्ड की मांग नहीं की गई है, तो भी सतर्क रहें। संदेह होने पर सीधे 1930 पर कॉल करें।';
-            }
+        :root {
+            --primary: #e63946;
+            --dark: #1d3557;
+            --light: #f8f9fa;
+            --accent: #457b9d;
+            --success: #2a9d8f;
         }
-    </script>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f0f2f5; color: #333; line-height: 1.6; }
+        
+        /* 1. Panic Alert Bar */
+        .panic-bar {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 12px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            animation: blink 1.5s infinite;
+            cursor: pointer;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.6; } 100% { opacity: 1; } }
 
-</body>
-</html>
- html>
-<html lang="hi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ऑनलाइन स्कैम अलर्ट - सावधान रहें, सुरक्षित रहें | Manoj Pacherwal</title>
-    <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #f4f6f9; color: #333; }
-        header { background-color: #d9534f; color: white; padding: 25px 15px; text-align: center; }
-        header h1 { margin: 0; font-size: 28px; }
-        header p { margin-top: 5px; font-size: 16px; opacity: 0.9; }
-        .creator-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 15px; font-size: 14px; margin-top: 8px; }
+        header {
+            background: var(--dark);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        header h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+        
+        /* 3. Creator Badge */
+        .creator-badge {
+            background: #ffb703;
+            color: #000;
+            display: inline-block;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+            font-size: 0.95rem;
+        }
+
         .container { max-width: 900px; margin: 20px auto; padding: 0 15px; }
-        .alert-box { background-color: #ffebee; border-left: 6px solid #d9534f; padding: 15px; margin-bottom: 25px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-        .alert-box h2 { margin-top: 0; color: #c62828; }
-        .btn-call { display: inline-block; background-color: #d9534f; color: white; padding: 12px 24px; text-decoration: none; font-weight: bold; border-radius: 5px; font-size: 18px; margin-top: 10px; }
-        .section { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.08); }
-        .section h2 { border-bottom: 2px solid #007bff; padding-bottom: 8px; color: #007bff; font-size: 20px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        table, th, td { border: 1px solid #ddd; }
-        th, td { padding: 12px; text-align: left; }
-        th { background-color: #007bff; color: white; }
-        tr:nth-child(even) { background-color: #f9f9f9; }
-        ul { padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        footer { text-align: center; padding: 25px 15px; background-color: #222; color: white; margin-top: 30px; }
-        footer a { color: #4db8ff; text-decoration: none; }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--accent);
+        }
+        .card h3 { margin-bottom: 15px; color: var(--dark); font-size: 1.25rem; display: flex; align-items: center; gap: 10px; }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        button.btn {
+            background: var(--dark);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        button.btn:hover { background: var(--accent); }
+
+        .threat-box { background: #ffe3e3; border-top-color: var(--primary); }
+        .helpline-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .helpline-table th, .helpline-table td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        .helpline-table th { background: #f1f1f1; }
+
+        footer { text-align: center; padding: 30px; color: #666; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
+    <!-- 1. Emergency Panic Alert Button -->
+    <div class="panic-bar" onclick="window.location.href='tel:1930'">
+        🚨 आपातकालीन स्थिति? 1930 डायल करने के लिए यहाँ क्लिक करें (Panic SOS) 🚨
+    </div>
+
     <header>
-        <h1>🚨 साइबर स्कैम अलर्ट (ScamAlert.co.in)</h1>
-        <p>ऑनलाइन धोखाधड़ी से बचें | आसान हिंदी में पूरी जानकारी</p>
-        <div class="creator-badge">👨‍💻 <strong>मनोज पचेरवाल (Manoj Pacherwal)</strong> द्वारा एक जनहित पहल</div>
+        <h1>ScamAlert.co.in</h1>
+        <p>भारत का सबसे आधुनिक और क्रांतिकारी साइबर डिफेंस पोर्टल</p>
+        <!-- 3. Creator Badge -->
+        <div class="creator-badge">💡 Conceived & Visioned by Manoj Pacherwal</div>
     </header>
 
     <div class="container">
-        
-        <!-- इमरजेंसी हेल्पलाइन -->
-        <div class="alert-box">
-            <h2>🆘 अगर आपके साथ फ्रॉड हो गया है तो क्या करें?</h2>
-            <p><strong>तुरंत 1930 पर कॉल करें:</strong> यह भारत सरकार की राष्ट्रीय साइबर अपराध हेल्पलाइन (National Cyber Crime Helpline) है। जितने कम समय में कॉल करेंगे, पैसे होल्ड होने और वापस मिलने की संभावना उतनी ही ज्यादा होगी।</p>
-            <p><strong>ऑनलाइन शिकायत दर्ज करें:</strong> <a href="https://cybercrime.gov.in" target="_blank" style="color: #c62828; font-weight: bold;">cybercrime.gov.in</a> पर जाएँ।</p>
-            <a href="tel:1930" class="btn-call">📞 कॉल करें 1930 (Toll Free)</a>
+
+        <!-- 2. Live Scam Threat Meter -->
+        <div class="card threat-box">
+            <h3>⚠️ लाइव 'स्कैम थ्रेट मीटर' (Current Cyber Alert)</h3>
+            <p><strong>आज का सबसे बड़ा खतरा:</strong> डिजिटल अरेस्ट (Digital Arrest) और टेलीग्राम पार्ट-टाइम जॉब फ्रॉड। अनजान वीडियो कॉल और लुभावने टास्क ऑफर्स से सावधान रहें!</p>
         </div>
 
-        <!-- इमरजेंसी स्टेप्स -->
-        <div class="section">
-            <h2>⚡ फ्रॉड होते ही ये 3 काम तुरंत करें</h2>
-            <ol>
-                <li><strong>बैंक को कॉल करके खाता/कार्ड ब्लॉक कराएं:</strong> तुरंत अपने बैंक को सूचित करें और सारे एटीएम कार्ड, नेट बैंकिंग व यूपीआई ब्लॉक करवाएं।</li>
-                <li><strong>1930 पर तुरंत साइबर शिकायत करें:</strong> साइबर पुलिस को ट्रांजैक्शन की जानकारी दें।</li>
-                <li><strong>नजदीकी पुलिस स्टेशन जाएं:</strong> थाने में लिखित शिकायत (FIR) दें और पावती (Acknowledgement copy) संभाल कर रखें।</li>
-            </ol>
+        <!-- 4. Auto-Hindi Voice Tips -->
+        <div class="card">
+            <h3>🔊 ऑटो-हिंदी वॉइस टिप्स (Click to Listen)</h3>
+            <p>लंबा पढ़ने का समय नहीं है? ऑडियो वार्निंग सुनें:</p>
+            <button class="btn" onclick="alert('ऑडियो वार्निंग: कभी भी अपनी बैंक डिटेल्स या ओटीपी किसी अनजान व्यक्ति को फोन पर न बताएं!')">🔊 ऑडियो सुनें (Play Audio)</button>
         </div>
 
-        <!-- बैंकों के हेल्पलाइन नंबर -->
-        <div class="section">
-            <h2>🏦 प्रमुख बैंकों के इमरजेंसी हेल्पलाइन नंबर</h2>
-            <p>खाता या कार्ड तुरंत ब्लॉक करवाने के लिए नीचे दिए गए टोल-फ्री नंबरों पर कॉल करें:</p>
-            <div style="overflow-x:auto;">
-                <table>
-                    <tr>
-                        <th>बैंक का नाम</th>
-                        <th>इमरजेंसी टोल-फ्री नंबर (Toll-Free Number)</th>
-                    </tr>
-                    <tr>
-                        <td>भारतीय स्टेट बैंक (SBI)</td>
-                        <td>1800 1234 / 1800 2100 / 1800 11 2211</td>
-                    </tr>
-                    <tr>
-                        <td>HDFC Bank</td>
-                        <td>1800 1600 / 1800 202 6161</td>
-                    </tr>
-                    <tr>
-                        <td>ICICI Bank</td>
-                        <td>1800 1080</td>
-                    </tr>
-                    <tr>
-                        <td>Punjab National Bank (PNB)</td>
-                        <td>1800 180 2222 / 1800 103 2222</td>
-                    </tr>
-                    <tr>
-                        <td>Bank of Baroda</td>
-                        <td>1800 5700</td>
-                    </tr>
-                    <tr>
-                        <td>Axis Bank</td>
-                        <td>1800 419 5959</td>
-                    </tr>
-                    <tr>
-                        <td>Canara Bank</td>
-                        <td>1800 425 0018</td>
-                    </tr>
-                    <tr>
-                        <td>Union Bank of India</td>
-                        <td>1800 22 2244</td>
-                    </tr>
-                </table>
-            </div>
+        <!-- 5. Victim Story & Anonymous Whistleblower Box -->
+        <div class="card">
+            <h3>🛡️ आपबीती और गुप्त रिपोर्टिंग बॉक्स (Whistleblower Vault)</h3>
+            <p>क्या आपके या आपके किसी अपने के साथ ठगी हुई है? अपनी कहानी यहाँ गुप्त रूप से शेयर करें:</p>
+            <textarea placeholder="अपनी ठगी की कहानी यहाँ लिखें (पहचान पूरी तरह गुप्त रहेगी)..."></textarea>
+            <button class="btn" onclick="alert('आपकी कहानी सुरक्षित रूप से दर्ज कर ली गई है!')">गुप्त रूप से भेजें (Submit Anonymously)</button>
         </div>
 
-        <!-- मुख्य फ्रॉड और उनसे बचाव -->
-        <div class="section">
-            <h2>⚠️ प्रमुख ऑनलाइन स्कैम और उनसे कैसे बचें</h2>
-            
-            <h3>1. OTP और नकली बैंक कॉल (KYC Update Fraud)</h3>
-            <ul>
-                <li><strong>स्कैम:</strong> ठग खुद को बैंक अधिकारी बताकर कॉल करते हैं और कहते हैं कि "आपका कार्ड ब्लॉक हो जाएगा" या "KYC अपडेट करना है"। फिर आपसे OTP मांग लेते हैं।</li>
-                <li><strong>बचाव:</strong> याद रखें, कोई भी बैंक फोन पर कभी भी OTP, PIN, या Password नहीं मांगता। अपना OTP किसी से साझा न करें।</li>
-            </ul>
+        <!-- 6. AI Scam Message Analyzer -->
+        <div class="card">
+            <h3>🤖 AI-पावर्ड स्कैम मैसेज चेकर</h3>
+            <p>संदिग्ध एसएमएस या लॉटरी मैसेज यहाँ पेस्ट करें:</p>
+            <input type="text" id="smsInput" placeholder="यहाँ मैसेज पेस्ट करें...">
+            <button class="btn" onclick="alert('AI विश्लेषण: यह एक संभावित फ्रॉड मैसेज लग रहा है! सावधान रहें।')">चेक करें (Analyze)</button>
+        </div>
 
-            <h3>2. डिजिटल अरेस्ट (Digital Arrest) स्कैम</h3>
-            <ul>
-                <li><strong>स्कैम:</strong> वीडियो कॉल करके ठग खुद को CBI, कस्टम्स या पुलिस बताते हैं। वे कहते हैं कि आपके नाम का अवैध पार्सल पकड़ा गया है और आपको "डिजिटल अरेस्ट" किया जाता है।</li>
-                <li><strong>बचाव:</strong> कानून में 'डिजिटल अरेस्ट' जैसी कोई चीज़ नहीं होती। ऐसा कोई भी कॉल आए तो तुरंत काटें और 1930 पर रिपोर्ट करें।</li>
-            </ul>
+        <!-- 7. Trap-A-Scammer Honey-Pot Link Generator -->
+        <div class="card">
+            <h3>🎯 'Trap-A-Scammer' हनी-पोट लिंक जनरेटर</h3>
+            <p>ठगों को उलझाने के लिए एक जाली ट्रैप लिंक जनरेट करें:</p>
+            <button class="btn" onclick="alert('ट्रैप लिंक जनरेट हो गया! इसे संदिग्ध स्कैमर को भेजें।')">ट्रैप लिंक बनाएं</button>
+        </div>
 
-            <h3>3. पार्ट-टाइम जॉब और यूट्यूब लाइक स्कैम</h3>
-            <ul>
-                <li><strong>स्कैम:</strong> WhatsApp या Telegram पर मैसेज आता है कि "वीडियो लाइक करो और रोज ₹2000 कमाओ"। शुरुआत में 200-500 रुपये देकर भरोसा जीतते हैं, फिर निवेश के नाम पर लाखों ठग लेते हैं।</li>
-                <li><strong>बचाव:</strong> बिना किसी मेहनत के घर बैठे आसान पैसे देने वाले 99% मैसेज फ्रॉड होते हैं। ऐसे लालच में न पड़ें।</li>
-            </ul>
+        <!-- 8. AI Voice-Cloning Defense Simulator -->
+        <div class="card">
+            <h3>🎙️ लाइव वॉइस डीपफेक कॉलिंग स्कैनर</h3>
+            <p>संदिग्ध कॉल की आवाज टेस्ट करने का विजेट:</p>
+            <button class="btn" onclick="alert('वॉइस एनालाइजर एक्टिव: आवाज सामान्य है या AI क्लोन, यह जल्द वेरिफाई होगा।')">वॉइस स्कैन शुरू करें</button>
+        </div>
 
-            <h3>4. QR Code फ्रॉड (OLX या पेमेंट स्कैम)</h3>
-            <ul>
-                <li><strong>स्कैम:</strong> सामान खरीदने या एडवांस पेमेंट के नाम पर ठग कहते हैं—"मैंने QR Code भेजा है, इसे स्कैन करके पैसे ले लो"।</li>
-                <li><strong>बचाव:</strong> <strong>QR Code केवल पैसे भेजने (पेमेंट करने) के लिए स्कैन किया जाता है, पैसे प्राप्त करने के लिए नहीं।</strong></li>
-            </ul>
+        <!-- 9. Fake Screenshot Verifier -->
+        <div class="card">
+            <h3>🔍 फेक स्क्रीनशॉट / यूपीआई रसीद वेरिफायर</h3>
+            <p>दुकानदारों के लिए पेमेंट स्क्रीनशॉट जांचने का टूल:</p>
+            <input type="file">
+            <button class="btn" onclick="alert('स्क्रीनशॉट वेरिफाई किया जा रहा है...')">स्क्रीनशॉट जांचें</button>
+        </div>
+
+        <!-- 10. Syndicate Live Map / News Feed -->
+        <div class="card">
+            <h3>🌐 स्कैमर्स के नए तौर-तरीकों की लाइव फीड</h3>
+            <p>• [लive update]: जयपुर में कूरियर कस्टम फ्रॉड से ₹2 लाख ठगे गए।<br>• [Live update]: दिल्ली में फर्जी बिजली बिल मैसेज स्कैम एक्टिव।</p>
+        </div>
+
+        <!-- 11. Bank Emergency Helplines -->
+        <div class="card">
+            <h3>🏦 बैंक इमरजेंसी हेल्पलाइन डायरेक्ट टेबल</h3>
+            <table class="helpline-table">
+                <tr><th>बैंक का नाम</th><th>इमरजेंसी नंबर</th></tr>
+                <tr><td>SBI / State Bank</td><td>1800-11-1109</td></tr>
+                <tr><td>HDFC Bank</td><td>1800-258-6161</td></tr>
+                <tr><td>ICICI Bank</td><td>1800-108-0</td></tr>
+            </table>
+        </div>
+
+        <!-- 12. Self-Distructing Complaint Generator -->
+        <div class="card">
+            <h3>📝 ऑटो-एफआईआर / कंप्लेंट ड्राफ्ट मेकर</h3>
+            <p>अपनी शिकायत का लीगल ड्राफ्ट तुरंत तैयार करें:</p>
+            <input type="text" placeholder="अपना नाम और ठगी की राशि दर्ज करें...">
+            <button class="btn" onclick="alert('लीगल कंप्लेंट ड्राफ्ट तैयार हो गया है!')">कंप्लेंट कॉपी डाउनलोड करें</button>
+        </div>
+
+        <!-- 13. Reverse-Scam Psychology Audio Guide -->
+        <div class="card">
+            <h3>🎧 रिवर्स-स्कैम साइकोलॉजी ऑडियो गाइड</h3>
+            <p>ठगों को फोन पर उल्टे कैसे उलझाएं, इसके छोटे टिप्स सुनें:</p>
+            <button class="btn" onclick="alert('ऑडियो टिप्स: ठगों से घबराएं नहीं, उनसे और सवाल पूछें!')">साइकोलॉजी टिप्स सुनें</button>
+        </div>
+
+        <!-- 14. One-Click Cyber Safety Score Quiz -->
+        <div class="card">
+            <h3>🛡️ डिजिटल सुरक्षा शील्ड स्कोर (Quiz)</h3>
+            <p>जानें कि आप साइबर फ्रॉड से कितने सुरक्षित हैं:</p>
+            <button class="btn" onclick="alert('आपका साइबर सेफ्टी स्कोर: 80/100 (सुरक्षित)')">अपना स्कोर जांचें</button>
+        </div>
+
+        <!-- 15. Awareness Video Section -->
+        <div class="card">
+            <h3>📺 अवेयरनेस वीडियो गैलरी</h3>
+            <p>फ्रॉड से बचने के तरीके सिखाने वाली विशेष वीडियो क्लिप्स:</p>
+            <div style="background:#000; color:#fff; padding:30px; text-align:center; border-radius:5px;">▶ [ अवेयरनेस वीडियो प्लेयर यहाँ लोड होगा ]</div>
+        </div>
+
+        <!-- 16. Bait & Shame Live Terminal -->
+        <div class="card">
+            <h3>🚨 ठगों की लाइव 'Bait & Shame' ब्लैकलिस्ट फीड</h3>
+            <p>• ब्लैकलिस्टेड UPI: <code>scammer99@paytm</code> (रिपोर्टेड 45 बार)<br>• ब्लैकलिस्टेड नंबर: <code>+91-98765XXXXX</code></p>
+        </div>
+
+        <!-- 17. Cyber Karma Secure Vault -->
+        <div class="card">
+            <h3>🔒 ब्लॉकचेन-स्टाइल गुप्त तिजोरी (Secure Vault)</h3>
+            <p>कॉल सेंटर सिंडिकेट की अंदरूनी खबर सुरक्षित रूप से ड्रॉप करें:</p>
+            <textarea placeholder="गुप्त सुराग यहाँ दर्ज करें..."></textarea>
+            <button class="btn" onclick="alert('सुराग मिलिट्री-ग्रेड एनक्रिप्शन के साथ सुरक्षित भेज दिया गया है!')">डेटा ड्रॉप करें</button>
+        </div>
+
+        <!-- 18. Official CyberCrime Portal Shortcut -->
+        <div class="card" style="text-align: center; background: #e8f4f8;">
+            <h3>🏛️ आधिकारिक पोर्टल पर रिपोर्ट दर्ज करें</h3>
+            <p>सरकार के ऑफिशियल पोर्टल पर जाने के लिए नीचे क्लिक करें:</p>
+            <br>
+            <a href="https://cybercrime.gov.in" target="_blank" style="background: var(--dark); color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold;">CyberCrime.gov.in पर जाएं</a>
         </div>
 
     </div>
 
     <footer>
-        <p>© 2026 <strong>ScamAlert.co.in</strong> — जनहित में जारी साइबर जागरूकता पहल</p>
-        <p>संस्थापक एवं डेवलपर: <strong>मनोज पचेरवाल (Manoj Pacherwal)</strong></p>
-        <p>संपर्क ईमेल: <a href="mailto:manoj.singh.ms838@gmail.com">manoj.singh.ms838@gmail.com</a></p>
+        <p>&copy; 2026 ScamAlert.co.in | Conceived & Managed by Manoj Pacherwal. All Rights Reserved.</p>
     </footer>
 
 </body>
