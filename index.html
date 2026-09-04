@@ -1,278 +1,191 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScamAlert.co.in - India's Ultimate Cyber Defense Portal</title>
+    <title>ScamAlert.co.in - National Cyber Defense Center</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary: #e63946;
-            --dark: #1d3557;
-            --light: #f8f9fa;
-            --accent: #457b9d;
-            --success: #2a9d8f;
-            --border: #ddd;
+            --bg-dark: #080c14;
+            --card-bg: rgba(15, 23, 42, 0.75);
+            --primary-red: #ff2a4b;
+            --neon-blue: #00f0ff;
+            --neon-green: #00ff87;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-glow: rgba(0, 240, 255, 0.25);
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #f0f2f5; color: #333; line-height: 1.6; }
-        
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+
         .panic-bar {
-            background-color: var(--primary);
-            color: white;
+            background: linear-gradient(90deg, #dc2626, #991b1b, #dc2626);
+            color: #ffffff;
             text-align: center;
-            padding: 14px;
-            font-weight: bold;
-            font-size: 1.15rem;
-            animation: blink 1.5s infinite;
+            padding: 14px 10px;
+            font-weight: 800;
+            font-size: 1.05rem;
             cursor: pointer;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 20px rgba(220, 38, 38, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
-        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.6; } 100% { opacity: 1; } }
 
-        header {
-            background: var(--dark);
-            color: white;
-            padding: 2.5rem 1rem;
-            text-align: center;
+        .ticker-wrap {
+            background: #020617;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 0;
+            overflow: hidden;
+            white-space: nowrap;
         }
-        header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
-        
+        .ticker { display: inline-block; animation: ticker 25s linear infinite; }
+        .ticker-item { display: inline-block; padding: 0 35px; color: var(--neon-blue); font-size: 0.9rem; font-weight: 600; }
+        @keyframes ticker { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-50%, 0, 0); } }
+
+        header { text-align: center; padding: 2.5rem 1rem 1.5rem; }
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(180deg, #ffffff 20%, var(--neon-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+        header p { color: var(--text-muted); font-size: 1.05rem; margin-top: 6px; }
+
         .creator-badge {
-            background: #ffb703;
+            background: linear-gradient(135deg, #ffb703, #fb8500);
             color: #000;
-            display: inline-block;
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-weight: bold;
-            margin-top: 12px;
-            font-size: 1rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 800;
+            margin-top: 15px;
+            font-size: 0.95rem;
+            box-shadow: 0 0 15px rgba(251, 133, 0, 0.4);
         }
 
-        .container { max-width: 950px; margin: 25px auto; padding: 0 15px; }
+        .container { max-width: 950px; margin: 0 auto; padding: 0 15px 40px; }
 
         .card {
-            background: white;
-            border-radius: 10px;
-            padding: 22px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
+            padding: 24px;
             margin-bottom: 22px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--accent);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         }
-        .card h3 { margin-bottom: 12px; color: var(--dark); font-size: 1.3rem; display: flex; align-items: center; gap: 10px; }
+        .card h3 { color: #fff; font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+        .card h3 i { color: var(--neon-blue); }
 
-        input, textarea, select {
-            width: 100%;
-            padding: 12px;
-            margin-top: 8px;
-            margin-bottom: 15px;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            font-size: 1rem;
-        }
-        button.btn {
-            background: var(--dark);
-            color: white;
+        .btn {
+            background: linear-gradient(135deg, #00f0ff, #0072ff);
+            color: #000;
             border: none;
-            padding: 12px 22px;
-            border-radius: 6px;
+            padding: 12px 20px;
+            border-radius: 8px;
             cursor: pointer;
             font-size: 1rem;
-            font-weight: bold;
-            transition: background 0.2s;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: all 0.2s ease;
         }
-        button.btn:hover { background: var(--accent); }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 0 15px rgba(0, 240, 255, 0.4); }
+        .btn-danger { background: linear-gradient(135deg, #ff2a4b, #dc2626); color: #fff; }
 
-        .threat-box { background: #ffe3e3; border-top-color: var(--primary); }
-        
-        /* Tables */
-        .data-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.95rem; }
-        .data-table th, .data-table td { border: 1px solid var(--border); padding: 10px; text-align: left; }
-        .data-table th { background: #f1f1f1; color: var(--dark); }
+        .checklist { list-style: none; margin-top: 10px; }
+        .checklist li {
+            padding: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: #cbd5e1;
+        }
+        .checklist li i { color: var(--neon-green); margin-top: 4px; }
 
-        /* Output Boxes */
-        .result-box { margin-top: 12px; padding: 15px; border-radius: 6px; font-weight: 600; display: none; font-size: 0.95rem; }
-        .safe-result { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
-        .danger-result { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
-        .info-result { background: #e9ecef; color: #333; border: 1px solid #ced4da; word-break: break-all; font-family: monospace; }
+        .bank-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .bank-table th, .bank-table td { border: 1px solid rgba(255,255,255,0.08); padding: 12px; text-align: left; font-size: 0.95rem; }
+        .bank-table th { background: rgba(255,255,255,0.05); color: var(--neon-blue); }
 
-        /* Quiz Options */
-        .quiz-option { display: block; margin: 8px 0; font-weight: normal; cursor: pointer; }
-
-        footer { text-align: center; padding: 35px; color: #666; font-size: 0.95rem; background: #fff; border-top: 1px solid #ddd; margin-top: 40px; }
+        footer { text-align: center; padding: 30px; color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05); }
     </style>
 </head>
 <body>
 
-    <!-- 1. Emergency Panic SOS -->
     <div class="panic-bar" onclick="window.location.href='tel:1930'">
-        🚨 आपातकालीन स्थिति? 1930 डायल करने के लिए यहाँ क्लिक करें (National Cyber Helpline) 🚨
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <span>आपातकालीन साइबर फ्रॉड हेल्प: 1930 पर कॉल करने के लिए यहाँ क्लिक करें</span>
+        <i class="fa-solid fa-phone"></i>
+    </div>
+
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <div class="ticker-item"><i class="fa-solid fa-shield-virus"></i> अलर्ट: 'डिजिटल अरेस्ट' फर्जी वीडियो कॉल से बचें!</div>
+            <div class="ticker-item"><i class="fa-solid fa-bell"></i> टेलीग्राम पार्ट-टाइम जॉब फ्रॉड से सावधान रहें</div>
+            <div class="ticker-item"><i class="fa-solid fa-user-ninja"></i> अनजान व्हाट्सएप APK फाइल डाउनलोड न करें</div>
+            <div class="ticker-item"><i class="fa-solid fa-shield-virus"></i> अलर्ट: 'डिजिटल अरेस्ट' फर्जी वीडियो कॉल से बचें!</div>
+        </div>
     </div>
 
     <header>
         <h1>ScamAlert.co.in</h1>
-        <p>भारत का सबसे आधुनिक और क्रांतिकारी साइबर डिफेंस पोर्टल</p>
-        <div class="creator-badge">💡 Conceived & Visioned by Manoj Pacherwal</div>
+        <p>भारत का राष्ट्रीय साइबर सुरक्षा व आपातकालीन सहायता पोर्टल</p>
+        <div class="creator-badge"><i class="fa-solid fa-bolt"></i> Conceived & Visioned by Manoj Pacherwal</div>
     </header>
 
     <div class="container">
 
-        <!-- 2. Live Cyber Threat Meter -->
-        <div class="card threat-box">
-            <h3>⚠️ लाइव 'स्कैम थ्रेट मीटर' (Current Cyber Alert)</h3>
-            <p><strong>आज का सबसे बड़ा राष्ट्रीय खतरा:</strong> 'डिजिटल अरेस्ट' (Digital Arrest) वीडियो कॉल स्कैम और टेलीग्राम पार्ट-टाइम टास्क फ्रॉड। किसी भी अनजान वीडियो कॉल या लुभावने टास्क ऑफर से दूर रहें!</p>
+        <div class="card" style="border-color: var(--primary-red);">
+            <h3><i class="fa-solid fa-phone-volume" style="color: var(--primary-red);"></i> 1930 राष्ट्रीय साइबर हेल्पलाइन (National Helpline)</h3>
+            <p style="color: var(--text-muted); margin-bottom: 15px;">यदि आपके खाते से धोखाधड़ी से पैसे कटे हैं, तो तुरंत 1930 पर कॉल करें ताकि बैंक ट्रांजैक्शन को होल्ड (Freeze) किया जा सके:</p>
+            <a href="tel:1930" class="btn btn-danger" style="width: 100%; font-size: 1.1rem; padding: 15px;">
+                <i class="fa-solid fa-phone"></i> अभी 1930 डायल करें
+            </a>
         </div>
 
-        <!-- 3. Real Hindi Voice Guidance -->
         <div class="card">
-            <h3>🔊 ऑटो-हिंदी वॉइस टिप्स (Audio Security Warning)</h3>
-            <p>पोर्टल की मुख्य सुरक्षा चेतावनी सीधे ऑडियो के रूप में सुनें:</p>
-            <button class="btn" onclick="playHindiVoice()">🔊 ऑडियो चेतावनी सुनें</button>
+            <h3><i class="fa-solid fa-volume-high"></i> आपातकालीन ऑडियो सुरक्षा निर्देश</h3>
+            <p style="color: var(--text-muted); margin-bottom: 15px;">साइबर फ्रॉड से बचने की सबसे मुख्य हिदायत साफ हिंदी आवाज में सुनें:</p>
+            <button class="btn" onclick="playAudioWarning()"><i class="fa-solid fa-play"></i> ऑडियो सुरक्षा निर्देश सुनें</button>
         </div>
 
-        <!-- 4. Victim Story & Whistleblower Vault -->
         <div class="card">
-            <h3>🛡️ आपबीती और गुप्त रिपोर्टिंग बॉक्स (Whistleblower Vault)</h3>
-            <p>यदि आपके साथ कोई ठगी हुई है, तो अपनी जानकारी यहाँ दर्ज करें (डेटा लोकल सर्वर सिक्योर लॉग में दर्ज होगा):</p>
-            <input type="text" id="victimName" placeholder="आपका नाम (वैकल्पिक)">
-            <textarea id="victimStory" placeholder="ठगी की पूरी घटना यहाँ विस्तार से लिखें..."></textarea>
-            <button class="btn" onclick="submitVictimStory()">गुप्त रूप से रिपोर्ट दर्ज करें</button>
-            <div id="storyResult" class="result-box"></div>
-        </div>
-
-        <!-- 5. Smart AI Scam Message Analyzer -->
-        <div class="card">
-            <h3>🤖 स्मार्ट AI-पावर्ड स्कैम मैसेज चेकर</h3>
-            <p>संदिग्ध एसएमएस या व्हाट्सएप मैसेज यहाँ पेस्ट करें और तुरंत असली/फर्जी की जाँच करें:</p>
-            <input type="text" id="smsInput" placeholder="मैसेज यहाँ पेस्ट करें (जैसे: Dear customer, your electricity bill will be disconnected...)">
-            <button class="btn" onclick="analyzeMessage()">मैसेज की जाँच करें</button>
-            <div id="aiResult" class="result-box"></div>
-        </div>
-
-        <!-- 6. Trap-A-Scammer Honey-Pot Link Generator -->
-        <div class="card">
-            <h3>🎯 'Trap-A-Scammer' हनी-पोट लिंक जनरेटर</h3>
-            <p>ठगों को उलझाने के लिए एक असली दिखने वाला ट्रैप यूआरएल जनरेट करें:</p>
-            <button class="btn" onclick="generateTrapLink()">गुप्त ट्रैप लिंक बनाएं</button>
-            <div id="trapResult" class="result-box info-result" style="display:none;"></div>
-        </div>
-
-        <!-- 7. Live Voice Deepfake Scanner -->
-        <div class="card">
-            <h3>🎙️ लाइव वॉइस डीपफेक कॉलिंग स्कैनर (Mic Audio Analysis)</h3>
-            <p>संदिग्ध कॉल को स्पीकर पर रखें और माइक के जरिए 5 सेकंड की आवाज स्कैन करें:</p>
-            <button class="btn" onclick="startVoiceScan()">🎙️ 5 सेकंड वॉइस स्कैन शुरू करें</button>
-            <div id="voiceResult" class="result-box"></div>
-        </div>
-
-        <!-- 8. Real Fake Screenshot / UPI Receipt Verifier -->
-        <div class="card">
-            <h3>🔍 फेक स्क्रीनशॉट / यूपीआई रसीद वेरिफायर</h3>
-            <p>दुकानदारों के लिए: पेमेंट ऐप (Google Pay/PhonePe) का स्क्रीनशॉट अपलोड कर मेटाडेटा जाँचें:</p>
-            <input type="file" id="screenshotFile" accept="image/*">
-            <button class="btn" onclick="verifyScreenshot()">स्क्रीनशॉट फाइल स्कैन करें</button>
-            <div id="screenshotResult" class="result-box"></div>
-        </div>
-
-        <!-- 9. Syndicate Live News Feed -->
-        <div class="card">
-            <h3>🌐 स्कैमर्स के नए तौर-तरीकों की लाइव फीड</h3>
-            <ul style="margin-left: 20px; font-size: 0.95rem; line-height: 1.8;">
-                <li><strong>[ताजा अपडेट]:</strong> कूरियर कस्टम्स ड्रग्स पार्सल फ्रॉड में वृद्धि, किसी भी पार्सल को स्वीकार करने से पहले थाने में संपर्क करें।</li>
-                <li><strong>[सिंडिकेट अलर्ट]:</strong> फर्जी शेयर बाजार (IPO / Trading App) के जरिए बड़े पैमाने पर निवेश के नाम पर ठगी।</li>
-                <li><strong>[सरकारी चेतावनी]:</strong> आरबीआई या इनकम टैक्स कभी भी फोन या वीडियो कॉल पर बैंक खाता सीज करने की धमकी नहीं देता।</li>
+            <h3><i class="fa-solid fa-clock-rotate-left"></i> साइबर फ्रॉड के बाद के पहले 60 मिनट ('Golden Hour' Checklist)</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">यदि पैसे कट चुके हैं, तो बिना घबराए इन 4 स्टेप्स का तुरंत पालन करें:</p>
+            <ul class="checklist">
+                <li><i class="fa-solid fa-circle-check"></i> <strong>स्टेप 1:</strong> तुरंत ऊपर दिए गए बटन से 1930 डायल करें और शिकायत नंबर दर्ज करें।</li>
+                <li><i class="fa-solid fa-circle-check"></i> <strong>स्टेप 2:</strong> अपने बैंक ऐप / एटीएम कार्ड को तुरंत ब्लॉक (Block) करें।</li>
+                <li><i class="fa-solid fa-circle-check"></i> <strong>स्टेप 3:</strong> यूपीआई (UPI) और मैसेज के ट्रांजैक्शन आईडी (UTR / Reference Number) का स्क्रीनशॉट लें।</li>
+                <li><i class="fa-solid fa-circle-check"></i> <strong>स्टेप 4:</strong> आधिकारिक साइबर पोर्टल (cybercrime.gov.in) पर लिखित रिपोर्ट दर्ज करें।</li>
             </ul>
         </div>
 
-        <!-- 10. Comprehensive Bank Helplines Directory -->
         <div class="card">
-            <h3>🏦 संपूर्ण बैंक इमरजेंसी हेल्पलाइन डायरेक्टरी</h3>
-            <p>देश के प्रमुख बैंकों के आधिकारिक और आपातकालीन धोखाधड़ी (Fraud Reporting) नंबर:</p>
-            <table class="data-table">
-                <tr><th>बैंक का नाम</th><th>इमरजेंसी फ्रॉड हेल्पलाइन नंबर</th></tr>
-                <tr><td>State Bank of India (SBI)</td><td>1800-11-1109 / 1930</td></tr>
-                <tr><td>HDFC Bank</td><td>1800-258-6161</td></tr>
-                <tr><td>ICICI Bank</td><td>1800-108-0 / 1800-103-8181</td></tr>
-                <tr><td>Punjab National Bank (PNB)</td><td>1800-180-2222</td></tr>
-                <tr><td>Bank of Baroda</td><td>1800-258-4455</td></tr>
-                <tr><td>Axis Bank</td><td>1800-419-5959</td></tr>
-                <tr><td>Paytm Payments Bank</td><td>0120-4456-456</td></tr>
-                <tr><td>PhonePe / Google Pay / UPI</td><td>cybercrime.gov.in पर रिपोर्ट दर्ज करें</td></tr>
+            <h3><i class="fa-solid fa-building-columns"></i> प्रमुख बैंकों की फ्रॉड हेल्पलाइन डायरेक्टरी</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px;">अपने संबंधित बैंक का नंबर चुनकर तुरंत कॉल करें:</p>
+            <table class="bank-table">
+                <tr><th>बैंक का नाम</th><th>आपातकालीन हेल्पलाइन</th><th>कॉल करें</th></tr>
+                <tr><td>State Bank of India (SBI)</td><td>1800-11-1109</td><td><a href="tel:1800111109" class="btn" style="padding: 6px 12px; font-size: 0.85rem;"><i class="fa-solid fa-phone"></i> कॉल</a></td></tr>
+                <tr><td>HDFC Bank</td><td>1800-258-6161</td><td><a href="tel:18002586161" class="btn" style="padding: 6px 12px; font-size: 0.85rem;"><i class="fa-solid fa-phone"></i> कॉल</a></td></tr>
+                <tr><td>ICICI Bank</td><td>1800-108-0</td><td><a href="tel:18001080" class="btn" style="padding: 6px 12px; font-size: 0.85rem;"><i class="fa-solid fa-phone"></i> कॉल</a></td></tr>
+                <tr><td>Axis Bank</td><td>1800-419-5959</td><td><a href="tel:18004195959" class="btn" style="padding: 6px 12px; font-size: 0.85rem;"><i class="fa-solid fa-phone"></i> कॉल</a></td></tr>
+                <tr><td>Punjab National Bank (PNB)</td><td>1800-180-2222</td><td><a href="tel:18001802222" class="btn" style="padding: 6px 12px; font-size: 0.85rem;"><i class="fa-solid fa-phone"></i> कॉल</a></td></tr>
             </table>
-        </div>
-
-        <!-- 11. Auto-FIR & Legal Complaint Draft Maker -->
-        <div class="card">
-            <h3>📝 ऑटो-एफआईआर / लीगल कंप्लेंट ड्राफ्ट मेकर</h3>
-            <p>अपनी जानकारी भरकर राष्ट्रीय साइबर क्राइम पोर्टल पर देने के लिए औपचारिक शिकायत का प्रारूप तैयार करें:</p>
-            <input type="text" id="complainantName" placeholder="पीड़ित का पूरा नाम">
-            <input type="text" id="fraudAmount" placeholder="ठगी गई कुल राशि (रुपये में)">
-            <input type="text" id="fraudMedium" placeholder="माध्यम (जैसे: WhatsApp, Call, APK App)">
-            <textarea id="incidentDetails" placeholder="घटना का संक्षिप्त विवरण..."></textarea>
-            <button class="btn" onclick="generateComplaintDraft()">शिकायती ड्राफ्ट तैयार करें</button>
-            <div id="complaintOutput" class="result-box info-result" style="display:none; white-space: pre-line;"></div>
-        </div>
-
-        <!-- 12. Digital Safety Shield Score Quiz -->
-        <div class="card">
-            <h3>🛡️ डिजिटल सुरक्षा शील्ड स्कोर (Interactive Quiz)</h3>
-            <p>क्या आप ऑनलाइन फ्रॉड से सुरक्षित हैं? इन 3 सवालों के जवाब दें:</p>
-            <p><strong>प्रश्नावली 1:</strong> क्या आप किसी अनजान व्यक्ति के कहने पर अपने फोन में AnyDesk या TeamViewer ऐप डाउनलोड करेंगे?</p>
-            <label class="quiz-option"><input type="radio" name="q1" value="yes"> हाँ, अगर वह बैंक अधिकारी बताए</label>
-            <label class="quiz-option"><input type="radio" name="q1" value="no"> बिल्कुल नहीं, यह फ्रॉड है</label>
-
-            <p style="margin-top: 15px;"><strong>प्रश्नावली 2:</strong> यदि कोई लॉटरी या पार्सल जीतने का झांसा देकर शुल्क मांगे, तो आप क्या करेंगे?</p>
-            <label class="quiz-option"><input type="radio" name="q2" value="yes"> पैसे भेजकर इनाम ले लेंगे</label>
-            <label class="quiz-option"><input type="radio" name="q2" value="no"> तुरंत नंबर ब्लॉक कर देंगे</label>
-
-            <button class="btn" style="margin-top: 15px;" onclick="calculateQuizScore()">अपना सुरक्षा स्कोर जाँचें</button>
-            <div id="quizResult" class="result-box"></div>
-        </div>
-
-        <!-- 13. Reverse-Scam Psychology Audio Guide -->
-        <div class="card">
-            <h3>🎧 रिवर्स-स्कैम साइकोलॉजी गाइड</h3>
-            <p>ठगों की मानसिकता को समझें और उन्हें मानसिक रूप से कैसे उलझाएं, इसके निर्देश:</p>
-            <button class="btn" onclick="playPsychologyVoice()">🎧 साइकोलॉजी टिप्स ऑडियो सुनें</button>
-        </div>
-
-        <!-- 14. Cyber Awareness Video Hub -->
-        <div class="card">
-            <h3>📺 साइबर जागरूकता वीडियो गाइड</h3>
-            <div style="background:#111; color:#fff; padding:40px; text-align:center; border-radius:6px;">
-                ▶ [ राष्ट्रीय साइबर अपराध जागरूकता आधिकारिक वीडियो फीड ]<br>
-                <span style="font-size: 0.85rem; color: #aaa;">(सचेत रहें, सुरक्षित रहें - गृह मंत्रालय, भारत सरकार दिशा-निर्देश)</span>
-            </div>
-        </div>
-
-        <!-- 15. Bait & Shame Blacklist Terminal -->
-        <div class="card">
-            <h3>🚨 ठगों की लाइव 'Bait & Shame' ब्लैकलिस्ट फीड</h3>
-            <table class="data-table">
-                <tr><th>ब्लैकलिस्टेड UPI / खाता</th><th>मोबाइल नंबर</th><th>रिपोर्ट स्थिति</th></tr>
-                <tr><td><code>scammer99@paytm</code></td><td>+91-98765XXXXX</td><td><span style="color:red; font-weight:bold;">ब्लॉक (142 बार रिपोर्ट)</span></td></tr>
-                <tr><td><code>cybercrime.help@ybl</code></td><td>+91-87654XXXXX</td><td><span style="color:red; font-weight:bold;">ब्लॉक (98 बार रिपोर्ट)</span></td></tr>
-                <tr><td><code>instantloan@okicici</code></td><td>+91-76543XXXXX</td><td><span style="color:red; font-weight:bold;">ब्लॉक (215 बार रिपोर्ट)</span></td></tr>
-            </table>
-        </div>
-
-        <!-- 16. Secure Whistleblower Drop Vault -->
-        <div class="card">
-            <h3>🔒 ब्लॉकचेन-स्टाइल गुप्त तिजोरी (Secure Vault)</h3>
-            <p>कॉल सेंटर सिंडिकेट या अवैध गतिविधियों से जुड़ा कोई गुप्त सुराग यहाँ सुरक्षित रूप से ड्रॉप करें:</p>
-            <textarea id="vaultInput" placeholder="गुप्त जानकारी, आईपी या नंबर यहाँ दर्ज करें..."></textarea>
-            <button class="btn" onclick="submitSecureVault()">एनक्रिप्टेड डेटा सुरक्षित भेजें</button>
-            <div id="vaultResult" class="result-box"></div>
-        </div>
-
-        <!-- 17. Official CyberCrime Portal Shortcut -->
-        <div class="card" style="text-align: center; background: #e8f4f8;">
-            <h3>🏛️ आधिकारिक राष्ट्रीय पोर्टल पर रिपोर्ट दर्ज करें</h3>
-            <p style="margin-bottom: 15px;">अपनी शिकायत आधिकारिक रूप से दर्ज करने के लिए भारत सरकार के पोर्टल पर जाएँ:</p>
-            <a href="https://cybercrime.gov.in" target="_blank" style="background: var(--dark); color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block;">CyberCrime.gov.in आधिकारिक वेबसाइट खोलें</a>
         </div>
 
     </div>
@@ -282,213 +195,20 @@
     </footer>
 
     <script>
-        // 1. Hindi Voice Guidance
-        function playHindiVoice() {
+        function playAudioWarning() {
             if ('speechSynthesis' in window) {
                 window.speechSynthesis.cancel();
-                let text = "सावधान! स्कैम अलर्ट पोर्टल पर आपका स्वागत है। कभी भी अपनी बैंक डिटेल्स, पिन नंबर, पासवर्ड या ओटीपी किसी भी अनजान व्यक्ति को फोन पर न बताएं। डिजिटल अरेस्ट और पार्ट टाइम जॉब फ्रॉड से सतर्क रहें।";
+                let text = "सावधान! कभी भी अपना बैंक ओटीपी, पासवर्ड या यूपीआई पिन किसी अनजान व्यक्ति को न बताएं। बैंक या पुलिस अधिकारी कभी भी फोन पर डिजिटल अरेस्ट की धमकी देकर पैसे नहीं मांगते। किसी भी वित्तीय ठगी की स्थिति में तुरंत 1930 नंबर पर कॉल करें।";
                 let utterance = new SpeechSynthesisUtterance(text);
                 utterance.lang = 'hi-IN';
                 utterance.rate = 0.9;
                 window.speechSynthesis.speak(utterance);
             } else {
-                alert("आपके ब्राउज़र में वॉइस स्पीच सपोर्ट उपलब्ध नहीं है।");
-            }
-        }
-
-        // 2. Psychology Audio Guide
-        function playPsychologyVoice() {
-            if ('speechSynthesis' in window) {
-                window.speechSynthesis.cancel();
-                let text = "रिवर्स स्कैम साइकोलॉजी टिप्स: ठग हमेशा आपको डर या जल्दी में रखते हैं। घबराएं नहीं। उनसे उल्टे सवाल पूछें, उनका पूरा नाम और आईडी मांगें। जैसे ही आप सवाल पूछेंगे, ठग खुद ही फोन काट देगा।";
-                let utterance = new SpeechSynthesisUtterance(text);
-                utterance.lang = 'hi-IN';
-                utterance.rate = 0.9;
-                window.speechSynthesis.speak(utterance);
-            } else {
-                alert("वॉइस सपोर्ट उपलब्ध नहीं है।");
-            }
-        }
-
-        // 3. Victim Story Vault
-        function submitVictimStory() {
-            let story = document.getElementById('victimStory').value.trim();
-            let res = document.getElementById('storyResult');
-            res.style.display = 'block';
-            if(story === '') {
-                res.className = 'result-box danger-result';
-                res.innerHTML = '⚠️ कृपया अपनी आपबीती या कहानी दर्ज करें!';
-            } else {
-                res.className = 'result-box safe-result';
-                res.innerHTML = '✅ आपकी गुप्त रिपोर्ट सुरक्षित रूप से एन्क्रिप्ट कर ली गई है। राष्ट्रीय साइबर सेल डेटाबेस में इसे फॉरवर्ड कर दिया गया है।';
-                document.getElementById('victimStory').value = '';
-            }
-        }
-
-        // 4. AI Message Analyzer
-        function analyzeMessage() {
-            let msg = document.getElementById('smsInput').value.toLowerCase().trim();
-            let res = document.getElementById('aiResult');
-            res.style.display = 'block';
-
-            if(msg === '') {
-                res.className = 'result-box danger-result';
-                res.innerHTML = '⚠️ जाँच करने के लिए कृपया कोई मैसेज पेस्ट करें!';
-                return;
-            }
-
-            let scamKeywords = ['lottery', 'won', 'click', 'http', 'free', 'reward', 'kyc', 'block', 'electricity', 'bill', 'part time', 'task', 'telegram', 'arrest', 'customs'];
-            let isScam = scamKeywords.some(word => msg.includes(word));
-
-            if(isScam) {
-                res.className = 'result-box danger-result';
-                res.innerHTML = '🚨 उच्च खतरा (High Scam Risk)! इस मैसेज में फिशिंग या फ्रॉड से जुड़े संदिग्ध शब्द पाए गए हैं। इस पर कोई कार्रवाई न करें और न ही किसी लिंक पर क्लिक करें!';
-            } else {
-                res.className = 'result-box safe-result';
-                res.innerHTML = '✅ यह मैसेज सामान्य प्रतीत होता है, फिर भी अपनी व्यक्तिगत जानकारी किसी से साझा न करें।';
-            }
-        }
-
-        // 5. Honey-Pot Trap Link Generator
-        function generateTrapLink() {
-            let box = document.getElementById('trapResult');
-            box.style.display = 'block';
-            let id = Math.floor(100000 + Math.random() * 900000);
-            box.innerHTML = '🔗 आपका हनी-पोट ट्रैप लिंक तैयार है:<br><strong>https://scamalert.co.in/secure-verify-token?id=trap_' + id + '</strong><br><span style="color:#d90429; font-size:0.85rem; font-weight:normal;">(इसे कॉपी करके स्कैमर को भेजें। जैसे ही वह क्लिक करेगा, उसका आईपी एड्रेस और डिवाइस फिंगरप्रिंट ट्रैप में आ जाएगा!)</span>';
-        }
-
-        // 6. Voice Deepfake Scanner
-        function startVoiceScan() {
-            let box = document.getElementById('voiceResult');
-            box.style.display = 'block';
-            box.className = 'result-box info-result';
-            box.innerHTML = '🎙️ माइक्रोफोन सक्रिय है... कॉल स्पीकर पर रखें, 5 सेकंड की आवाज स्कैन हो रही है...';
-
-            if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-                navigator.mediaDevices.getUserMedia({ audio: true })
-                .then(stream => {
-                    setTimeout(() => {
-                        stream.getTracks().forEach(t => t.stop());
-                        let isFake = Math.random() > 0.4;
-                        if(isFake) {
-                            box.className = 'result-box danger-result';
-                            box.innerHTML = '🚨 उच्च जोखिम (AI Voice Clone Detected)! इस आवाज के पैटर्न और फ्रीक्वेंसी स्पेक्ट्रम में आर्टिफिशियल इंटेलिजेंस डीपफेक के लक्षण मिले हैं। यह कोई असली व्यक्ति नहीं है!';
-                        } else {
-                            box.className = 'result-box safe-result';
-                            box.innerHTML = '✅ प्राकृतिक आवाज (Natural Voice): विश्लेषण के अनुसार यह सामान्य मानवीय स्वर प्रतीत होता है।';
-                        }
-                    }, 5000);
-                })
-                .catch(err => {
-                    box.className = 'result-box danger-result';
-                    box.innerHTML = '⚠️ माइक की अनुमति नहीं मिली। कृपया ब्राउज़र सेटिंग्स में माइक्रोफोन परमिशन एलाऊ करें।';
-                });
-            } else {
-                setTimeout(() => {
-                    box.className = 'result-box danger-result';
-                    box.innerHTML = '⚠️ इस ब्राउज़र में डायरेक्ट माइक एक्सेस समर्थित नहीं है।';
-                }, 2000);
-            }
-        }
-
-        // 7. Screenshot Verifier
-        function verifyScreenshot() {
-            let fileInput = document.getElementById('screenshotFile');
-            let box = document.getElementById('screenshotResult');
-            box.style.display = 'block';
-
-            if(fileInput.files.length === 0) {
-                box.className = 'result-box danger-result';
-                box.innerHTML = '⚠️ कृपया पहले जाँच के लिए पेमेंट स्क्रीनशॉट की इमेज फाइल चुनें!';
-                return;
-            }
-
-            let name = fileInput.files[0].name.toLowerCase();
-            box.className = 'result-box info-result';
-            box.innerHTML = '🔍 इमेज पिक्सल संरचना और डिजिटल वॉटरमार्क का विश्लेषण किया जा रहा है...';
-
-            setTimeout(() => {
-                let fake = name.includes('fake') || name.includes('edit') || Math.random() > 0.5;
-                if(fake) {
-                    box.className = 'result-box danger-result';
-                    box.innerHTML = '🚨 फर्जी रसीद (Fake Screenshot)! इस इमेज के पिक्सल लेयर में एडिटिंग और फर्जी ट्रांजैक्शन आईडी के प्रमाण मिले हैं। सामान डिलीवर न करें!';
-                } else {
-                    box.className = 'result-box safe-result';
-                    box.innerHTML = '✅ वैध रसीद (Genuine Receipt): इस स्क्रीनशॉट के मेटाडेटा और यूपीआई पैटर्न प्रामाणिक प्रतीत होते हैं।';
-                }
-            }, 2500);
-        }
-
-        // 8. Auto-FIR Complaint Draft Maker
-        function generateComplaintDraft() {
-            let name = document.getElementById('complainantName').value.trim();
-            let amt = document.getElementById('fraudAmount').value.trim();
-            let med = document.getElementById('fraudMedium').value.trim();
-            let details = document.getElementById('incidentDetails').value.trim();
-            let box = document.getElementById('complaintOutput');
-            box.style.display = 'block';
-
-            if(!name || !amt) {
-                box.className = 'result-box danger-result';
-                box.innerHTML = '⚠️ कृपया कम से कम अपना नाम और ठगी की राशि दर्ज करें!';
-                return;
-            }
-
-            box.className = 'result-box info-result';
-            box.innerHTML = `📋 **राष्ट्रीय साइबर क्राइम पोर्टल हेतु औपचारिक शिकायत ड्राफ्ट:**\n\n` +
-                `प्रति,\nसाइबर क्राइम सेल / राष्ट्रीय हेल्पलाइन (1930)\n\n` +
-                `विषय: ऑनलाइन वित्तीय धोखाधड़ी की शिकायत बाबत।\n\n` +
-                `महोदय,\nमेरा नाम ${name} है। मेरे साथ ${amt} रुपये की ऑनलाइन धोखाधड़ी हुई है।\n` +
-                `फ्रॉड का माध्यम: ${med || 'ऑनलाइन माध्यम'}\n` +
-                `घटना का विवरण: ${details || 'अज्ञात कॉलर/संदेश के माध्यम से बैंक खाते से अवैध निकासी।'}\n\n` +
-                `अतः निवेदन है कि इस ट्रांजैक्शन को तुरंत होल्ड किया जाए और उचित कानूनी कार्रवाई की जाए।\n\n` +
-                `हस्ताक्षर: ${name}\n(Conceived via ScamAlert.co.in - Managed by Manoj Pacherwal)`;
-        }
-
-        // 9. Safety Quiz Calculator
-        function calculateQuizScore() {
-            let q1 = document.querySelector('input[name="q1"]:checked');
-            let q2 = document.querySelector('input[name="q2"]:checked');
-            let res = document.getElementById('quizResult');
-            res.style.display = 'block';
-
-            if(!q1 || !q2) {
-                res.className = 'result-box danger-result';
-                res.innerHTML = '⚠️ कृपया सभी प्रश्नों के उत्तर चुनें!';
-                return;
-            }
-
-            let score = 0;
-            if(q1.value === 'no') score += 50;
-            if(q2.value === 'no') score += 50;
-
-            if(score === 100) {
-                res.className = 'result-box safe-result';
-                res.innerHTML = '✅ आपका साइबर सुरक्षा स्कोर: 100/100 (सुरक्षित)! आप साइबर ठगों के झांसे में नहीं आएंगे।';
-            } else if(score === 50) {
-                res.className = 'result-box info-result';
-                res.innerHTML = '⚠️ आपका साइबर सुरक्षा स्कोर: 50/100 (मध्यम जोखिम)! आपको अपनी डिजिटल सुरक्षा और मजबूत करने की आवश्यकता है।';
-            } else {
-                res.className = 'result-box danger-result';
-                res.innerHTML = '🚨 आपका साइबर सुरक्षा स्कोर: 0/100 (अति संवेदनशील)! आप बहुत आसानी से साइबर फ्रॉड का शिकार हो सकते हैं। कृपया पोर्टल पर दिए गए दिशा-निर्देशों का पालन करें!';
-            }
-        }
-
-        // 10. Secure Vault
-        function submitSecureVault() {
-            let val = document.getElementById('vaultInput').value.trim();
-            let res = document.getElementById('vaultResult');
-            res.style.display = 'block';
-            if(val === '') {
-                res.className = 'result-box danger-result';
-                res.innerHTML = '⚠️ कृपया सुरक्षित तिजोरी में दर्ज करने के लिए सुराग या जानकारी लिखें!';
-            } else {
-                res.className = 'result-box safe-result';
-                res.innerHTML = '🔒 आपका डेटा मिलिट्री-ग्रेड एन्क्रिप्शन के साथ सुरक्षित रूप से ब्लॉकचेन लॉग में ड्रॉप कर दिया गया है।';
-                document.getElementById('vaultInput').value = '';
+                alert("आपके डिवाइस में ऑडियो स्पीच सपोर्ट उपलब्ध नहीं है।");
             }
         }
     </script>
-
 </body>
 </html>
+       
+           
