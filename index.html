@@ -7,59 +7,67 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #080c14;
-            --card-bg: rgba(15, 23, 42, 0.8);
-            --primary-red: #ff2a4b;
+            --bg-dark: #050811;
+            --card-bg: rgba(13, 22, 41, 0.85);
+            --primary-red: #ff003c;
             --neon-blue: #00f0ff;
             --neon-green: #00ff87;
-            --neon-purple: #9d4edd;
+            --neon-purple: #b5179e;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --border-glow: rgba(0, 240, 255, 0.25);
+            --border-glow: rgba(0, 240, 255, 0.3);
+            --glass-shadow: 0 8px 32px 0 rgba(0, 240, 255, 0.1);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, -apple-system, sans-serif; }
         body { background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
 
+        /* Modern Glowing Emergency Header Bar */
         .panic-bar {
-            background: linear-gradient(90deg, #dc2626, #991b1b, #dc2626);
+            background: linear-gradient(90deg, #ff003c, #990000, #ff003c);
             color: #ffffff;
             text-align: center;
             padding: 14px 10px;
             font-weight: 800;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             cursor: pointer;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 20px rgba(220, 38, 38, 0.5);
+            box-shadow: 0 0 25px rgba(255, 0, 60, 0.8);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 12px;
+            letter-spacing: 0.5px;
+            animation: pulse-red 2s infinite;
         }
+        @keyframes pulse-red { 0%, 100% { opacity: 1; } 50% { opacity: 0.85; } }
 
+        /* Ticker Header */
         .ticker-wrap {
-            background: #020617;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: #02040a;
+            border-bottom: 1px solid rgba(0, 240, 255, 0.2);
             padding: 8px 0;
             overflow: hidden;
             white-space: nowrap;
         }
-        .ticker { display: inline-block; animation: ticker 25s linear infinite; }
+        .ticker { display: inline-block; animation: ticker 30s linear infinite; }
         .ticker-item { display: inline-block; padding: 0 35px; color: var(--neon-blue); font-size: 0.9rem; font-weight: 600; }
         @keyframes ticker { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-50%, 0, 0); } }
 
-        header { text-align: center; padding: 2rem 1rem 1rem; }
+        /* Futuristic Header */
+        header { text-align: center; padding: 2.5rem 1rem 1rem; }
         header h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 900;
-            background: linear-gradient(180deg, #ffffff 20%, var(--neon-blue));
+            background: linear-gradient(180deg, #ffffff 30%, var(--neon-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             letter-spacing: -0.5px;
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
         }
-        header p { color: var(--text-muted); font-size: 1.05rem; margin-top: 6px; }
+        header p { color: var(--text-muted); font-size: 1.1rem; margin-top: 6px; }
 
         .creator-badge {
             background: linear-gradient(135deg, #ffb703, #fb8500);
@@ -67,112 +75,116 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 8px 20px;
+            padding: 8px 24px;
             border-radius: 30px;
             font-weight: 800;
-            margin-top: 12px;
+            margin-top: 14px;
             font-size: 0.95rem;
-            box-shadow: 0 0 15px rgba(251, 133, 0, 0.4);
+            box-shadow: 0 0 20px rgba(251, 133, 0, 0.5);
         }
 
+        /* Modern Futuristic Navigation Bar */
         .nav-tabs {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            max-width: 950px;
-            margin: 20px auto 10px;
+            gap: 12px;
+            max-width: 1000px;
+            margin: 25px auto 15px;
             padding: 0 15px;
             flex-wrap: wrap;
         }
         .tab-btn {
-            background: rgba(15, 23, 42, 0.9);
+            background: rgba(13, 22, 41, 0.8);
             border: 1px solid var(--border-glow);
             color: var(--text-muted);
-            padding: 12px 18px;
-            border-radius: 10px;
+            padding: 14px 20px;
+            border-radius: 12px;
             cursor: pointer;
             font-weight: 700;
             font-size: 0.95rem;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             transition: all 0.3s ease;
             flex: 1;
-            min-width: 180px;
+            min-width: 200px;
             justify-content: center;
+            backdrop-filter: blur(10px);
         }
         .tab-btn:hover, .tab-btn.active {
-            background: linear-gradient(135deg, rgba(0, 240, 255, 0.15), rgba(0, 114, 255, 0.25));
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.2), rgba(0, 114, 255, 0.3));
             border-color: var(--neon-blue);
             color: #fff;
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
         }
         .tab-btn.active { border-bottom: 3px solid var(--neon-blue); }
 
-        .container { max-width: 950px; margin: 0 auto; padding: 0 15px 40px; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 15px 40px; }
         .tab-content { display: none; }
-        .tab-content.active { display: block; animation: fadeIn 0.4s ease; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        .tab-content.active { display: block; animation: fadeIn 0.4s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
+        /* Modern Glowing Cards Style */
         .card {
             background: var(--card-bg);
             border: 1px solid var(--border-glow);
-            border-radius: 16px;
-            padding: 24px;
-            margin-bottom: 22px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            border-radius: 18px;
+            padding: 26px;
+            margin-bottom: 24px;
+            backdrop-filter: blur(12px);
+            box-shadow: var(--glass-shadow);
         }
-        .card h3 { color: #fff; font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+        .card h3 { color: #fff; font-size: 1.3rem; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
         .card h3 i { color: var(--neon-blue); }
 
         .btn {
             background: linear-gradient(135deg, #00f0ff, #0072ff);
             color: #000;
             border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
+            padding: 13px 22px;
+            border-radius: 10px;
             cursor: pointer;
             font-size: 1rem;
             font-weight: 800;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
             text-decoration: none;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
         }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 0 15px rgba(0, 240, 255, 0.4); }
-        .btn-danger { background: linear-gradient(135deg, #ff2a4b, #dc2626); color: #fff; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 0 20px rgba(0, 240, 255, 0.5); }
+        .btn-danger { background: linear-gradient(135deg, #ff003c, #dc2626); color: #fff; box-shadow: 0 0 15px rgba(255, 0, 60, 0.4); }
 
-        .input-group { margin-bottom: 15px; }
-        .input-group label { display: block; margin-bottom: 6px; color: var(--text-muted); font-size: 0.9rem; font-weight: 600; }
-        .input-field {
+        /* Form Controls & Inputs */
+        .input-group { margin-bottom: 16px; }
+        .input-group label { display: block; margin-bottom: 8px; color: var(--text-muted); font-size: 0.95rem; font-weight: 600; }
+        .input-field, textarea {
             width: 100%;
-            padding: 12px 15px;
-            background: rgba(2, 6, 23, 0.8);
+            padding: 14px 16px;
+            background: rgba(2, 6, 23, 0.9);
             border: 1px solid rgba(0, 240, 255, 0.3);
-            border-radius: 8px;
+            border-radius: 10px;
             color: #fff;
             font-size: 1rem;
             outline: none;
             transition: all 0.3s;
         }
-        .input-field:focus { border-color: var(--neon-blue); box-shadow: 0 0 10px rgba(0, 240, 255, 0.3); }
+        .input-field:focus, textarea:focus { border-color: var(--neon-blue); box-shadow: 0 0 15px rgba(0, 240, 255, 0.4); }
 
         .result-box {
-            margin-top: 15px;
-            padding: 15px;
-            border-radius: 8px;
-            background: rgba(0,0,0,0.4);
+            margin-top: 18px;
+            padding: 18px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.5);
             display: none;
             border-left: 4px solid var(--neon-blue);
         }
 
-        .checklist { list-style: none; margin-top: 10px; }
+        .checklist { list-style: none; margin-top: 12px; }
         .checklist li {
-            padding: 12px;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding: 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             display: flex;
             align-items: flex-start;
             gap: 12px;
@@ -181,10 +193,10 @@
         .checklist li i { color: var(--neon-green); margin-top: 4px; }
 
         .bank-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        .bank-table th, .bank-table td { border: 1px solid rgba(255,255,255,0.08); padding: 12px; text-align: left; font-size: 0.95rem; }
+        .bank-table th, .bank-table td { border: 1px solid rgba(255,255,255,0.08); padding: 14px; text-align: left; font-size: 0.95rem; }
         .bank-table th { background: rgba(255,255,255,0.05); color: var(--neon-blue); }
 
-        footer { text-align: center; padding: 30px; color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05); }
+        footer { text-align: center; padding: 35px; color: var(--text-muted); font-size: 0.95rem; border-top: 1px solid rgba(255,255,255,0.08); }
     </style>
 </head>
 <body>
@@ -219,18 +231,19 @@
 
     <div class="container">
 
+        <!-- TAB 1: EMERGENCY 1930 -->
         <div id="tab1" class="tab-content active">
             <div class="card" style="border-color: var(--primary-red);">
                 <h3><i class="fa-solid fa-phone-volume" style="color: var(--primary-red);"></i> 1930 राष्ट्रीय साइबर हेल्पलाइन (National Helpline)</h3>
-                <p style="color: var(--text-muted); margin-bottom: 15px;">यदि आपके खाते से धोखाधड़ी से पैसे कटे हैं, तो तुरंत 1930 पर कॉल करें ताकि बैंक ट्रांजैक्शन को होल्ड (Freeze) किया जा सके:</p>
-                <a href="tel:1930" class="btn btn-danger" style="width: 100%; font-size: 1.1rem; padding: 15px;">
+                <p style="color: var(--text-muted); margin-bottom: 16px;">यदि आपके खाते से धोखाधड़ी से पैसे कटे हैं, तो तुरंत 1930 पर कॉल करें ताकि बैंक ट्रांजैक्शन को होल्ड (Freeze) किया जा सके:</p>
+                <a href="tel:1930" class="btn btn-danger" style="width: 100%; font-size: 1.1rem; padding: 16px;">
                     <i class="fa-solid fa-phone"></i> अभी 1930 डायल करें
                 </a>
             </div>
 
             <div class="card">
                 <h3><i class="fa-solid fa-volume-high"></i> आपातकालीन ऑडियो सुरक्षा निर्देश</h3>
-                <p style="color: var(--text-muted); margin-bottom: 15px;">साइबर फ्रॉड से बचने की सबसे मुख्य हिदायत साफ हिंदी आवाज में सुनें:</p>
+                <p style="color: var(--text-muted); margin-bottom: 16px;">साइबर फ्रॉड से बचने की सबसे मुख्य हिदायत साफ हिंदी आवाज में सुनें:</p>
                 <button class="btn" onclick="playAudioWarning()"><i class="fa-solid fa-play"></i> ऑडियो सुरक्षा निर्देश सुनें</button>
             </div>
 
@@ -247,25 +260,26 @@
 
             <div class="card">
                 <h3><i class="fa-solid fa-building-columns"></i> प्रमुख बैंकों की फ्रॉड हेल्पलाइन डायरेक्टरी</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px;">अपने संबंधित बैंक का नंबर चुनकर तुरंत कॉल करें:</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">अपने संबंधित बैंक का नंबर चुनकर तुरंत कॉल करें:</p>
                 <table class="bank-table">
                     <tr><th>बैंक का नाम</th><th>आपातकालीन हेल्पलाइन</th><th>कॉल करें</th></tr>
-                    <tr><td>State Bank of India (SBI)</td><td>1800-11-1109</td><td><a href="tel:1800111109" class="btn" style="padding: 6px 12px; font-size: 0.85rem;"><i class="fa-solid fa-phone"></i> कॉल</a></td></tr>
-                    <tr><td>HDFC Bank</td><td>1800-258-6161</td><td><a href="tel:18002586161" class="btn" style="padding: 6px 12px; font-size: 0.85rem;"><i class="fa-solid fa-phone"></i> कॉल</a></td></tr>
-                    <tr><td>ICICI Bank</td><td>1800-108-0</td><td><a href="tel:18001080" class="btn" style="padding: 6px 12px; font-size: 0.85rem;"><i class="fa-solid fa-phone"></i> कॉल</a></td></tr>
-                    <tr><td>Axis Bank</td><td>1800-419-5959</td><td><a href="tel:18004195959" class="btn" style="padding: 6px 12px; font-size: 0.85rem;"><i class="fa-solid fa-phone"></i> कॉल</a></td></tr>
-                    <tr><td>Punjab National Bank (PNB)</td><td>1800-180-2222</td><td><a href="tel:18001802222" class="btn" style="padding: 6px 12px; font-size: 0.85rem;"><i class="fa-solid fa-phone"></i> कॉल</a></td></tr>
+                    <tr><td>State Bank of India (SBI)</td><td>1800-11-1109</td><td><a href="tel:1800111109" class="btn" style="padding: 6px 14px; font-size: 0.85rem;"><i class="fa-solid fa-phone"></i> कॉल</a></td></tr>
+                    <tr><td>HDFC Bank</td><td>1800-258-6161</td><td><a href="tel:18002586161" class="btn" style="padding: 6px 14px; font-size: 0.85rem;"><i class="fa-solid fa-phone"></i> कॉल</a></td></tr>
+                    <tr><td>ICICI Bank</td><td>1800-108-0</td><td><a href="tel:18001080" class="btn" style="padding: 6px 14px; font-size: 0.85rem;"><i class="fa-solid fa-phone"></i> कॉल</a></td></tr>
+                    <tr><td>Axis Bank</td><td>1800-419-5959</td><td><a href="tel:18004195959" class="btn" style="padding: 6px 14px; font-size: 0.85rem;"><i class="fa-solid fa-phone"></i> कॉल</a></td></tr>
+                    <tr><td>Punjab National Bank (PNB)</td><td>1800-180-2222</td><td><a href="tel:18001802222" class="btn" style="padding: 6px 14px; font-size: 0.85rem;"><i class="fa-solid fa-phone"></i> कॉल</a></td></tr>
                 </table>
             </div>
         </div>
 
+        <!-- TAB 2: AI FORENSICS TOOLKIT -->
         <div id="tab2" class="tab-content">
             <div class="card">
-                <h3><i class="fa-solid fa-bug" style="color: var(--neon-blue);"></i> 1. APK व संदिग्ध लिंक स्कैन (Link & File Analyzer)</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">व्हाट्सएप या मैसेज पर मिले किसी भी लिंक या .apk फाइल का लिंक यहाँ डालकर जाँचें:</p>
+                <h3><i class="fa-solid fa-bug" style="color: var(--neon-blue);"></i> 1. APK व संदिग्ध लिंक स्कैन (Link Analyzer)</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">व्हाट्सएप या मैसेज पर मिले किसी भी लिंक या .apk फाइल का नाम डालकर जांचें:</p>
                 <div class="input-group">
                     <label>संदिग्ध लिंक या फाइल का नाम दर्ज करें:</label>
-                    <input type="text" id="scanInput" class="input-field" placeholder="उदा. http://sbi-update-kyc.apk या suspicious-link.com">
+                    <input type="text" id="scanInput" class="input-field" placeholder="उदा. http://sbi-update-kyc.apk">
                 </div>
                 <button class="btn" onclick="analyzeLink()"><i class="fa-solid fa-magnifying-glass"></i> AI फॉरेंसिक स्कैन चलाएं</button>
                 <div id="scanResult" class="result-box"></div>
@@ -273,48 +287,84 @@
 
             <div class="card">
                 <h3><i class="fa-solid fa-building-columns" style="color: var(--neon-green);"></i> 2. UPI व बैंक अकाउंट रिस्क चेकर</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">पैसे ट्रांसफर करने से पहले अज्ञात UPI ID या मोबाइल नंबर की जोखिम दर जाँचें:</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">पेमेंट करने से पहले अनजान UPI ID या मोबाइल नंबर की जांच करें:</p>
                 <div class="input-group">
                     <label>UPI ID या मोबाइल नंबर दर्ज करें:</label>
-                    <input type="text" id="upiInput" class="input-field" placeholder="उदा. 9876543210@paytm या user@ybl">
+                    <input type="text" id="upiInput" class="input-field" placeholder="उदा. 9876543210@paytm">
                 </div>
                 <button class="btn" onclick="checkUPI()"><i class="fa-solid fa-shield-virus"></i> डेटाबेस में चेकिंग करें</button>
                 <div id="upiResult" class="result-box"></div>
             </div>
 
             <div class="card">
-                <h3><i class="fa-solid fa-calculator" style="color: #ffb703;"></i> 3. इन्वेस्टमेन्ट व 'पैसे डबल' फ्रॉड कैलकुलेटर</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">क्या कोई आपको प्रतिदिन 5% से 10% रिटर्न या पार्ट-टाइम जॉब में बड़े मुनाफे का लालच दे रहा है?</p>
+                <h3><i class="fa-solid fa-calculator" style="color: #ffb703;"></i> 3. 'पैसे डबल' फ्रॉड कैलकुलेटर</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">पार्ट-टाइम जॉब या इन्वेस्टमेंट स्कीम में मिलने वाले ऑफर का रिस्क रेट जानें:</p>
                 <div class="input-group">
                     <label>दावा किया जाने वाला दैनिक/मासिक रिटर्न (%)</label>
                     <input type="number" id="returnRate" class="input-field" placeholder="उदा. 10 (प्रतिदिन 10% मुनाफा)">
                 </div>
-                <button class="btn" onclick="calculateRisk()"><i class="fa-solid fa-chart-line"></i> फ्रॉड रिस्क स्कोर निकालें</button>
+                <button class="btn" onclick="calculateRisk()"><i class="fa-solid fa-chart-line"></i> फ्रॉड रिस्क निकालें</button>
                 <div id="calcResult" class="result-box"></div>
             </div>
 
             <div class="card">
-                <h3><i class="fa-solid fa-user-ninja" style="color: var(--neon-purple);"></i> 4. एआई डीपफेक व डिजिटल अरेस्ट डिटेक्टर</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">यदि आपको कोई अनजान पुलिस/सीबीआई अधिकारी बनकर वीडियो कॉल कर रहा है, तो इन बातों से असली पहचान पहचानें:</p>
+                <h3><i class="fa-solid fa-user-ninja" style="color: var(--neon-purple);"></i> 4. एआई डीपफेक व डिजिटल अरेस्ट गाइड</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">फर्जी वीडियो कॉल या पुलिस धमकी से खुद को बचाने के मुख्य सूत्र:</p>
                 <ul class="checklist">
-                    <li><i class="fa-solid fa-triangle-exclamation" style="color: #ff2a4b;"></i> <strong>चेहरे की पलकें:</strong> एआई डीपफेक वीडियो में व्यक्ति बहुत कम पलकें झपकाता है या आंखों का मूवमेंट अस्वाभाविक होता है।</li>
-                    <li><i class="fa-solid fa-triangle-exclamation" style="color: #ff2a4b;"></i> <strong>आवाज का लय:</strong> आवाज में थोड़ी सी गूंज (Robot Echo) या शब्दों के बीच में अजीब अंतर महसूस होगा।</li>
-                    <li><i class="fa-solid fa-triangle-exclamation" style="color: #ff2a4b;"></i> <strong>कानूनी नियम:</strong> भारतीय कानून में **"डिजिटल अरेस्ट"** नाम की कोई प्रक्रिया नहीं है। पुलिस या सीबीआई कभी भी वीडियो कॉल पर पैसे नहीं मांगती।</li>
+                    <li><i class="fa-solid fa-triangle-exclamation" style="color: #ff003c;"></i> <strong>डिजिटल अरेस्ट पूरी तरह फर्जी है:</strong> भारत में पुलिस कभी भी व्हाट्सएप पर वीडियो कॉल करके केस खत्म करने के लिए पैसे नहीं मांगती।</li>
+                    <li><i class="fa-solid fa-triangle-exclamation" style="color: #ff003c;"></i> <strong>डीपफेक पहचानें:</strong> फर्जी वीडियो में व्यक्ति की आंखों की पलकें नहीं झपकतीं और आवाज में अनपेक्षित ठहराव होता है।</li>
                 </ul>
             </div>
         </div>
 
+        <!-- TAB 3: CYBER SCAM QUIZ & SIMULATION -->
         <div id="tab3" class="tab-content">
-            <div class="card" style="text-align: center; padding: 40px 20px;">
-                <h3><i class="fa-solid fa-laptop-code" style="color: var(--neon-blue);"></i> टैब 3: साइबर सिमुलेशन व अवेयरनेस गेम</h3>
-                <p style="color: var(--text-muted); margin-top: 10px;">यह सेक्शन अगले चरण में डेवलप किया जाएगा। यहाँ यूज़र्स के लिए लाइव स्कैम क्विज़ और साइबर वॉरियर सर्टिफिकेशन सिस्टम रहेगा!</p>
+            <div class="card">
+                <h3><i class="fa-solid fa-gamepad" style="color: var(--neon-blue);"></i> साइबर सुरक्षा क्विज़ व रिफ्लेक्स टेस्ट</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px;">नीचे दिए गए सवाल का जवाब देकर जांचें कि आपकी साइबर सुरक्षा जागरूकता कितनी मजबूत है:</p>
+                <div id="quizContainer">
+                    <p style="font-weight: 700; margin-bottom: 14px; color: #fff;">सवाल: आपको बैंक का कर्मचारी बताकर एक व्यक्ति फोन करता है और कहता है कि आपका ATM कार्ड ब्लॉक हो रहा है, तुरंत OTP बताएं। आप क्या करेंगे?</p>
+                    <button class="btn" style="width: 100%; margin-bottom: 10px; justify-content: flex-start; background: rgba(255,255,255,0.05); color: #fff; border: 1px solid var(--border-glow);" onclick="answerQuiz(false)">A. तुरंत OTP बता दूंगा ताकि कार्ड ब्लॉक न हो।</button>
+                    <button class="btn" style="width: 100%; justify-content: flex-start; background: rgba(255,255,255,0.05); color: #fff; border: 1px solid var(--border-glow);" onclick="answerQuiz(true)">B. कॉल काट दूंगा, क्योंकि बैंक कभी OTP नहीं मांगता।</button>
+                </div>
+                <div id="quizResult" class="result-box"></div>
+            </div>
+
+            <div class="card">
+                <h3><i class="fa-solid fa-award" style="color: #ffb703;"></i> 'डिजिटल साइबर वॉरियर' शपथ पत्र</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">डिजिटल भारत को साइबर फ्रॉड मुक्त बनाने के लिए संकल्प लें:</p>
+                <ul class="checklist">
+                    <li><i class="fa-solid fa-shield-cat" style="color: var(--neon-blue);"></i> मैं कभी भी किसी अज्ञात व्यक्ति के साथ अपना बैंक पासवर्ड या OTP शेयर नहीं करूंगा।</li>
+                    <li><i class="fa-solid fa-shield-cat" style="color: var(--neon-blue);"></i> मैं अनजान लिंक्स या .APK फाइलें डाउनलोड नहीं करूंगा।</li>
+                    <li><i class="fa-solid fa-shield-cat" style="color: var(--neon-blue);"></i> साइबर फ्रॉड होने पर तुरंत 1930 डायल करके दूसरों की मदद करूंगा।</li>
+                </ul>
             </div>
         </div>
 
+        <!-- TAB 4: COMPLAINT VAULT & DRAFT GENERATOR -->
         <div id="tab4" class="tab-content">
-            <div class="card" style="text-align: center; padding: 40px 20px;">
-                <h3><i class="fa-solid fa-file-shield" style="color: var(--neon-green);"></i> टैब 4: डिजिटल वॉलेट व साइबर कंप्लेंट वॉल्ट</h3>
-                <p style="color: var(--text-muted); margin-top: 10px;">यह सेक्शन अंतिम चरण में डेवलप होगा। यहाँ कानूनी ड्राफ्ट्स, FIR शिकायत फॉर्मेट और एविडेंस लॉकर मिलेगा!</p>
+            <div class="card">
+                <h3><i class="fa-solid fa-file-signature" style="color: var(--neon-green);"></i> पुलिस / 1930 कंप्लेंट ड्राफ्ट जनरेटर</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 14px;">अपनी जानकारी भरें और पुलिस शिकायत या बैंक में जमा करने के लिए तुरंत आवेदन पत्र (Application) तैयार करें:</p>
+                
+                <div class="input-group">
+                    <label>आपका नाम:</label>
+                    <input type="text" id="victimName" class="input-field" placeholder="उदा. मनोज पचेरवाल">
+                </div>
+                <div class="input-group">
+                    <label>कितने रुपये की ठगी हुई? (Amount):</label>
+                    <input type="number" id="fraudAmount" class="input-field" placeholder="उदा. 25000">
+                </div>
+                <div class="input-group">
+                    <label>बैंक का नाम / UPI ऐप:</label>
+                    <input type="text" id="bankName" class="input-field" placeholder="उदा. State Bank of India / PhonePe">
+                </div>
+                <button class="btn" onclick="generateDraft()"><i class="fa-solid fa-file-export"></i> आवेदन ड्राफ्ट तैयार करें</button>
+
+                <div id="draftResult" class="result-box">
+                    <p style="font-weight: 700; color: var(--neon-blue); margin-bottom: 8px;">तैयार ड्राफ्ट (इसे कॉपी करके प्रिंट करें या पुलिस को दें):</p>
+                    <textarea id="draftText" rows="10" readonly></textarea>
+                </div>
             </div>
         </div>
 
@@ -351,29 +401,25 @@
             let input = document.getElementById('scanInput').value.trim();
             let res = document.getElementById('scanResult');
             if(!input) { alert("कृपया कोई लिंक या APK का नाम दर्ज करें!"); return; }
-            
             res.style.display = "block";
-            res.innerHTML = "<span style='color: var(--neon-blue);'><i class='fa-solid fa-spinner fa-spin'></i> एआई फॉरेंसिक स्कैनर जाँच कर रहा है...</span>";
-            
+            res.innerHTML = "<span style='color: var(--neon-blue);'><i class='fa-solid fa-spinner fa-spin'></i> AI फॉरेंसिक स्कैनर जांच कर रहा है...</span>";
             setTimeout(() => {
                 if(input.toLowerCase().includes('.apk') || input.toLowerCase().includes('kyc') || input.toLowerCase().includes('free')) {
-                    res.innerHTML = "<h4 style='color: #ff2a4b;'><i class='fa-solid fa-triangle-exclamation'></i> उच्च जोखिम (HIGH RISK ALERT)!</h4><p style='font-size: 0.9rem; margin-top: 5px; color: #f8fafc;'>यह लिंक/फाइल खतरनाक लग रही है! इसमें मैलवेयर या एपीके की संभावना 92% है। इसे तुरंत डिलीट करें और न खोलें।</p>";
+                    res.innerHTML = "<h4 style='color: #ff003c;'><i class='fa-solid fa-triangle-exclamation'></i> उच्च जोखिम (HIGH RISK ALERT)!</h4><p style='font-size: 0.9rem; margin-top: 5px; color: #f8fafc;'>यह लिंक/फाइल खतरनाक लग रही है! इसमें मैलवेयर या एपीके की संभावना 92% है। इसे न खोलें।</p>";
                 } else {
-                    res.innerHTML = "<h4 style='color: var(--neon-green);'><i class='fa-solid fa-circle-check'></i> सामान्य परिणाम (SAFE CHECK)</h4><p style='font-size: 0.9rem; margin-top: 5px; color: #f8fafc;'>इस लिंक में प्राथमिक तौर पर कोई खतरनाक वायरस दर्ज नहीं मिला। फिर भी सतर्क रहें।</p>";
+                    res.innerHTML = "<h4 style='color: var(--neon-green);'><i class='fa-solid fa-circle-check'></i> सामान्य परिणाम (SAFE CHECK)</h4><p style='font-size: 0.9rem; margin-top: 5px; color: #f8fafc;'>इस लिंक में प्राथमिक तौर पर कोई खतरनाक वायरस दर्ज नहीं मिला। सतर्क रहें।</p>";
                 }
-            }, 1200);
+            }, 1000);
         }
 
         function checkUPI() {
             let input = document.getElementById('upiInput').value.trim();
             let res = document.getElementById('upiResult');
             if(!input) { alert("कृपया UPI ID या मोबाइल नंबर दर्ज करें!"); return; }
-            
             res.style.display = "block";
             res.innerHTML = "<span style='color: var(--neon-blue);'><i class='fa-solid fa-spinner fa-spin'></i> नेशनल साइबर डेटाबेस में सर्च जारी है...</span>";
-            
             setTimeout(() => {
-                res.innerHTML = "<h4 style='color: #ffb703;'><i class='fa-solid fa-shield-cat'></i> सत्यापन सलाह (Caution Advised)</h4><p style='font-size: 0.9rem; margin-top: 5px; color: #f8fafc;'>इस खाते पर पहले से सुरक्षा निगरानी है। पेमेंट करने से पहले संबंधित व्यक्ति की व्यक्तिगत पुष्टि अवश्य कर लें।</p>";
+                res.innerHTML = "<h4 style='color: #ffb703;'><i class='fa-solid fa-shield-cat'></i> सत्यापन सलाह (Caution Advised)</h4><p style='font-size: 0.9rem; margin-top: 5px; color: #f8fafc;'>इस खाते पर सुरक्षा निगरानी है। पेमेंट करने से पहले संबंधित व्यक्ति की व्यक्तिगत पुष्टि अवश्य कर लें।</p>";
             }, 1000);
         }
 
@@ -381,13 +427,33 @@
             let rate = parseFloat(document.getElementById('returnRate').value);
             let res = document.getElementById('calcResult');
             if(!rate) { alert("कृपया ऑफर किया जाने वाला रिटर्न प्रतिशत दर्ज करें!"); return; }
-            
             res.style.display = "block";
             if(rate > 3) {
-                res.innerHTML = "<h4 style='color: #ff2a4b;'><i class='fa-solid fa-skull-crossbones'></i> 100% पोंजी/फर्जी स्कीम (FRAUD SCHEME)</h4><p style='font-size: 0.9rem; margin-top: 5px; color: #f8fafc;'>दुनिया का कोई भी वैध बैंक या शेयर बाजार प्रतिदिन " + rate + "% गारंटीड रिटर्न नहीं दे सकता। यह पूरी तरह से धोखाधड़ी और पोंजी स्कैम है। अपने पैसे न गंवाएं!</p>";
+                res.innerHTML = "<h4 style='color: #ff003c;'><i class='fa-solid fa-skull-crossbones'></i> 100% फर्जी स्कीम (FRAUD SCHEME)</h4><p style='font-size: 0.9rem; margin-top: 5px; color: #f8fafc;'>दुनिया का कोई भी बैंक प्रतिदिन " + rate + "% गारंटीड रिटर्न नहीं दे सकता। यह पोंजी फ्रॉड है!</p>";
             } else {
-                res.innerHTML = "<h4 style='color: var(--neon-green);'><i class='fa-solid fa-circle-check'></i> मध्यम/सामान्य रिटर्न</h4><p style='font-size: 0.9rem; margin-top: 5px; color: #f8fafc;'>रिटर्न सामान्य सीमा में है, फिर भी किसी भी अनरजिस्टर्ड कंपनी में निवेश न करें।</p>";
+                res.innerHTML = "<h4 style='color: var(--neon-green);'><i class='fa-solid fa-circle-check'></i> मध्यम/सामान्य रिटर्न</h4><p style='font-size: 0.9rem; margin-top: 5px; color: #f8fafc;'>रिटर्न सामान्य सीमा में है, फिर भी जांच-परखकर ही पैसे लगाएं।</p>";
             }
+        }
+
+        function answerQuiz(isCorrect) {
+            let res = document.getElementById('quizResult');
+            res.style.display = "block";
+            if(isCorrect) {
+                res.innerHTML = "<h4 style='color: var(--neon-green);'><i class='fa-solid fa-circle-check'></i> बिल्कुल सही जवाब!</h4><p style='font-size: 0.9rem; margin-top: 5px;'>बैंक कभी भी फोन पर OTP नहीं मांगता। आपने साइबर धोखाधड़ी का प्रयास तुरंत नाकाम कर दिया!</p>";
+            } else {
+                res.innerHTML = "<h4 style='color: #ff003c;'><i class='fa-solid fa-triangle-exclamation'></i> गलत जवाब!</h4><p style='font-size: 0.9rem; margin-top: 5px;'>कभी भी किसी को OTP न बताएं। बैंक अधिकारी बनकर आने वाले कॉल फर्जी होते हैं।</p>";
+            }
+        }
+
+        function generateDraft() {
+            let name = document.getElementById('victimName').value.trim() || "[आपका नाम]";
+            let amount = document.getElementById('fraudAmount').value.trim() || "[रकम]";
+            let bank = document.getElementById('bankName').value.trim() || "[बैंक/ऐप नाम]";
+            
+            let draft = "सेवा में,\nश्रीमान थाना प्रभारी / साइबर सेल अधिकारी,\n\nविषय: साइबर वित्तीय धोखाधड़ी (" + amount + " रुपये) की शिकायत हेतु आवेदन पत्र।\n\nमहोदय,\nसविनय निवेदन है कि मेरा नाम " + name + " है। मेरे साथ " + bank + " के माध्यम से ऑनलाइन धोखाधड़ी करके धोखाधड़ी से " + amount + " रुपये की राशि निकाल ली गई है।\n\nमैंने इस घटना की प्राथमिक सूचना 1930 राष्ट्रीय साइबर हेल्पलाइन पर भी दर्ज करा दी है। आपसे विनम्र अनुरोध है कि इस मामले में त्वरित संज्ञान लेते हुए धोखाधड़ी वाले खाते को सीज करने एवं उचित कानूनी कार्रवाई करने की कृपा करें।\n\nधन्यवाद।\nप्रार्थी:\nनाम: " + name + "\nपोर्टल: ScamAlert.co.in द्वारा जनरेटेड";
+
+            document.getElementById('draftText').value = draft;
+            document.getElementById('draftResult').style.display = "block";
         }
     </script>
 </body>
